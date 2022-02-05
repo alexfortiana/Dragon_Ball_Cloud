@@ -4,7 +4,7 @@ https://github.com/alexfortiana/Dragon_Ball_Cloud.git
 
 ### Description
 
-Dragon Ball Cloud is a game where The character will have obstacles that he will 
+Dragon Ball Cloud is a game where the character will have obstacles that he will 
 have to avoid by turning to the left or to the right, if he touches the obstacle 
 the game is over.
 
