@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dragon Ball Cloud</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="splash-screen" class="container">
+        <img src="./Images/title.png" alt="title-logo" />
+        <h4>Description</h4>
+        <p>
+          Son Goku is flying down to save the world but there is a lot of
+          clouds.
+        </p>
+        <h4>Instructions</h4>
+        <p>Just move the arrow on your keyboard to move Son Goku.</p>
+        <label for="name">NICKNAME</label>
+        <input type="text" id="name" name="name" />
 
-    <div>
-        <div>
-            <img src="./Images/kamehame.gif" alt="">
+        <button id="start-button">START</button>
+      </div>
 
-        </div>
+      <canvas id="my-canvas" width="500" height="600"></canvas>
+
+      <div id="gameover-screen" class="container">
+        <span class="records"
+          >RECORDS!
+          <ol class="score-list"></ol>
+        </span>
+        <img src="./Images/start.jpg" alt="gameover-logo" />
+        <button id="restart-button">RESTART</button>
+      </div>
     </div>
-    
-</body>
+
+    <script src="./javascript/main.js"></script>
+    <script src="./javascript/game.js"></script>
+    <script src="./javascript/goku.js"></script>
+    <script src="./javascript/clouds.js"></script>
+  </body>
 </html>

@@ -1,9 +1,34 @@
 body {
-    margin: 0;
-    background:  url(./Images/BGMAIN.png) no-repeat center center fixed;
-    background-size: cover;
-    height: 100%;
-    overflow: hidden;
-
+  margin: 0;
+  background: url(./Images/BGMAIN.png) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  /* overflow: hidden; */
 }
 
+#my-canvas {
+  background-color: red;
+}
+
+#start-button,
+#restart-button {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+#my-canvas,
+#gameover-screen {
+  display: none;
+}
