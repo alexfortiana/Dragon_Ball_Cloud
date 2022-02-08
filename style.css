@@ -4,6 +4,8 @@ body {
   background-size: cover;
   height: 100%;
   /* overflow: hidden; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
 }
 
 #my-canvas {
@@ -31,4 +33,31 @@ body {
 #my-canvas,
 #gameover-screen {
   display: none;
+}
+
+#splash-screen {
+  /* background-color: darkred; */
+  padding: 50px;
+  border-radius: 20px;
+  
+  background-image: url("./Images/fondo-splash-screen.jpg");
+}
+#gameover-screen {
+  background-color: darkred;
+  padding: 150px;
+  border-radius: 20px;
+
+}
+
+#cloud-background {
+  opacity: 0.5;
+
+}
+.start-titles {
+  
+}
+
+button:hover {
+  
+
 }

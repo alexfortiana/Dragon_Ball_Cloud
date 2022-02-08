@@ -32,6 +32,7 @@ let restartButton = document.querySelector("#restart-button");
 restartButton.addEventListener("click", restartGame);
 
 document.addEventListener("keydown", (event) => {
-  console.log(event);
+  // console.log(event);
   newGame.goku.gokuMove(event);
+  // newGame.goku.gokuChanges(event)
 });
