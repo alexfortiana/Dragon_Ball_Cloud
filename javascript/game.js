@@ -2,9 +2,7 @@ class Game {
   constructor() {
     this.bg = new Image();
     this.bg.src = "./Images/sky3.jpg";
-    this.move = 0
-    // this.bg2 = new Image();
-    // this.bg2.src = "./Images/sky3.jpg";
+    this.move = 0;
     this.goku = new Goku();
     this.cloudsArr = [new Clouds(-260)];
     this.cloudSeparation = 250;
@@ -12,28 +10,21 @@ class Game {
     this.score = -5;
 
     this.imgGo3 = new Image();
-    this.imgGo3.src = "./Images/3.png"
+    this.imgGo3.src = "./Images/3.png";
 
     this.imgGo2 = new Image();
-    this.imgGo2.src = "./Images/2.png" 
+    this.imgGo2.src = "./Images/2.png";
 
     this.imgGo1 = new Image();
-    this.imgGo1.src = "./Images/1.png" 
+    this.imgGo1.src = "./Images/1.png";
 
     this.imgGo = new Image();
-    this.imgGo.src = "./Images/go.png" 
+    this.imgGo.src = "./Images/go.png";
 
-    this.ball = new Ball()
+    this.ball = new Ball();
 
     // this.gameMusic = new Audio()
     // this.gameMusic.src = "Sounds/Dragon Ball Z_Prologue Theme 2(Extended) Buu Saga.mp3"
-
-
-
-    
-
-    
-
 
     // this.cloudPosition = [-20, 100, 220, 340]
   }
@@ -48,18 +39,17 @@ class Game {
   // }
 
   drawGo = () => {
-    if(this.score < -4){
-    ctx.drawImage(this.imgGo3, canvas.width / 2 -25, 200, 50, 80)
-    //poner sonidos tambien
-    } else if(this.score > -4 && this.score < -3 ) {
-      ctx.drawImage(this.imgGo2, canvas.width / 2 -25, 200, 50, 80)
-    } else if(this.score > -3 && this.score < -2 ){
-      ctx.drawImage(this.imgGo1, canvas.width / 2 -25, 200, 50, 80)
-     } else if(this.score > -2 && this.score < -1) {
-        ctx.drawImage(this.imgGo, canvas.width / 2 -45, 180, 120, 150)
-      }
+    if (this.score < -4) {
+      ctx.drawImage(this.imgGo3, canvas.width / 2 - 25, 200, 50, 80);
+      //poner sonidos tambien
+    } else if (this.score > -4 && this.score < -3) {
+      ctx.drawImage(this.imgGo2, canvas.width / 2 - 25, 200, 50, 80);
+    } else if (this.score > -3 && this.score < -2) {
+      ctx.drawImage(this.imgGo1, canvas.width / 2 - 25, 200, 50, 80);
+    } else if (this.score > -2 && this.score < -1) {
+      ctx.drawImage(this.imgGo, canvas.width / 2 - 45, 180, 120, 150);
     }
-  
+  };
 
   spawningClouds = () => {
     let lastCloud = this.cloudsArr[this.cloudsArr.length - 1];
@@ -74,12 +64,10 @@ class Game {
       let cloud1 = new Clouds(cloudPosition2[0]);
       let cloud2 = new Clouds(cloudPosition2[1]);
       let cloud3 = new Clouds(cloudPosition2[2]);
-     
 
       this.cloudsArr.push(cloud1);
       this.cloudsArr.push(cloud2);
       this.cloudsArr.push(cloud3);
-      
     }
   };
 
@@ -96,13 +84,7 @@ class Game {
   };
 
   drawBackground = () => {
-    
-    ctx.drawImage(this.bg, 0, this.move, canvas.width, canvas.height)
-    
-    
-
-
-    // ctx.drawImage(this.bg2, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(this.bg, 0, this.move, canvas.width, canvas.height);
   };
 
   // movingBackground = () => {
@@ -127,44 +109,30 @@ class Game {
       this.goku.x + this.goku.width > eachCloudParam.x &&
       this.goku.y + this.goku.height <
         eachCloudParam.y + eachCloudParam.height &&
-      this.goku.height + this.goku.y > eachCloudParam.y + 10 
+      this.goku.height + this.goku.y > eachCloudParam.y + 10
     ) {
-      if(this.goku.transform === true) {
-        this.goku.y += 100
-        
-        this.goku.transform = false
+      if (this.goku.transform === true) {
+        this.goku.y += 100;
 
-
-      } else if(this.goku.transform === false){
+        this.goku.transform = false;
+      } else if (this.goku.transform === false) {
         this.isGameOn = false;
         canvas.style.display = "none";
         gameOverScreen.style.display = "flex";
-        
-
       }
-    // } else if(){
-    //   // eachCloudParam.style.display = "none"
-    //   
-    // && this.goku.transform === false
-
-    // }
+    
     }
   };
 
-
   checkBallCollision = () => {
-    // console.log(this.goku.y, this.goku.width, this.goku.height, this.goku.x)
-    // console.log(this.goku.transform)
     if (
       this.goku.x < this.ball.x + this.ball.width &&
       this.goku.x + this.goku.width > this.ball.x &&
       this.goku.y < this.ball.y + this.ball.height &&
-      this.goku.height + this.goku.y > this.ball.y) {
-      this.score += 0.2 
+      this.goku.height + this.goku.y > this.ball.y
+    ) {
+      this.score += 0.2;
       this.goku.transform = true;
-      
-      // console.log(this.goku.transform)
-      
     }
   };
 
@@ -191,32 +159,20 @@ class Game {
     });
 
     this.drawBackground();
-    
+
     this.goku.drawGoku();
     // this.goku.gokuStart(this.score)
-    
-    
+
     this.cloudsArr.forEach((eachCloud) => {
       eachCloud.drawClouds();
     });
     this.drawScore();
-    this.drawGo()
+    this.drawGo();
 
-    
-    this.checkBallCollision()
+    this.checkBallCollision();
     // this.goku.gokuTransform()
-    
 
-
-    this.ball.drawBall(this.score)
-    
-
-
-
-
-   
-
-    
+    this.ball.drawBall(this.score);
 
     // console.log("the game is going!!")
     if (this.isGameOn) requestAnimationFrame(this.gameLoop);
