@@ -6,6 +6,7 @@ body {
   /* overflow: hidden; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bolder;
+  color: darkgoldenrod;
 }
 
 #my-canvas {
@@ -16,9 +17,9 @@ body {
 #restart-button {
   background-color: red;
   color: white;
-  padding: 10px;
-  font-size: 20px;
-  margin-top: 40px;
+  padding: 5px;
+  font-size: 15px;
+  margin-top: 20px;
   border-radius: 10px;
 }
 
@@ -40,7 +41,10 @@ body {
   padding: 50px;
   border-radius: 20px;
   
-  background-image: url("./Images/fondo-splash-screen.jpg");
+  /* background-image: url("./Images/fondo2-splashscreen.jpg"); */
+  background: url(./Images/fondo-splash-screen.jpg) no-repeat ;
+  background-size: cover;
+  
 }
 #gameover-screen {
   background-color: darkred;

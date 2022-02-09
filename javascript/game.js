@@ -25,6 +25,9 @@ class Game {
 
     this.ball = new Ball()
 
+    this.gameMusic = new Audio()
+    this.gameMusic.src = "Sounds/Dragon Ball Z_Prologue Theme 2(Extended) Buu Saga.mp3"
+
 
 
     
@@ -34,6 +37,15 @@ class Game {
 
     // this.cloudPosition = [-20, 100, 220, 340]
   }
+
+  // musicPlay = () => {
+  //   if(this.score > -1){
+  //     this.gameMusic.play()
+  //   } else if(this.isGameOn === false)
+  //   {console.log("hola")
+  //     this.musicPlay.pause();
+  //     this.musicPlay.currentTime = 0}
+  // }
 
   drawGo = () => {
     if(this.score < -4){
@@ -117,13 +129,17 @@ class Game {
         eachCloudParam.y + eachCloudParam.height &&
       this.goku.height + this.goku.y > eachCloudParam.y + 10 
     ) {
-      if(this.goku.transform) {
+      if(this.goku.transform === true) {
+        this.goku.y += 100
+        
         this.goku.transform = false
 
-      } else {
+
+      } else if(this.goku.transform === false){
         this.isGameOn = false;
         canvas.style.display = "none";
         gameOverScreen.style.display = "flex";
+        
 
       }
     // } else if(){
@@ -138,7 +154,7 @@ class Game {
 
   checkBallCollision = () => {
     // console.log(this.goku.y, this.goku.width, this.goku.height, this.goku.x)
-    console.log(this.goku.transform)
+    // console.log(this.goku.transform)
     if (
       this.goku.x < this.ball.x + this.ball.width &&
       this.goku.x + this.goku.width > this.ball.x &&
@@ -147,7 +163,7 @@ class Game {
       this.score += 0.2 
       this.goku.transform = true;
       
-      console.log(this.goku.transform)
+      // console.log(this.goku.transform)
       
     }
   };
@@ -167,6 +183,7 @@ class Game {
       eachCloud.cloudsMove();
     });
     this.spawningClouds();
+    // this.musicPlay()
 
     this.cloudsArr.forEach((eachCloud) => {
       this.checkGokuCollision(eachCloud);
@@ -176,6 +193,7 @@ class Game {
     this.drawBackground();
     
     this.goku.drawGoku();
+    // this.goku.gokuStart(this.score)
     
     
     this.cloudsArr.forEach((eachCloud) => {
@@ -191,6 +209,7 @@ class Game {
 
 
     this.ball.drawBall(this.score)
+    
 
 
 
