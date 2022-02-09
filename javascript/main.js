@@ -8,6 +8,8 @@ let newGame;
 let nameOfUser = document.querySelector("#nameOfUser")
 let nameWin = document.querySelector("#nameWin")
 let gokuScore = document.querySelector("#scoreWin")
+let gameMusic = new Audio()
+gameMusic.src = "Sounds/Dragon Ball Z_Prologue Theme 2(Extended) Buu Saga.mp3"
 
 
 
@@ -20,6 +22,7 @@ const startGame = () => {
   // console.log(newGame)
   newGame.gameLoop();
   nameWin.innerText = nameOfUser.value
+  gameMusic.play()
   
 };
 
@@ -39,8 +42,23 @@ startButton.addEventListener("click", startGame);
 let restartButton = document.querySelector("#restart-button");
 restartButton.addEventListener("click", restartGame);
 
+
 document.addEventListener("keydown", (event) => {
+  if(newGame !== undefined){
+    newGame.goku.gokuMove(event);
+
+  }
+})
+
+  document.addEventListener("keyup", (event) => {
+    if(newGame !== undefined){
+      newGame.goku.gokuPause(event);
+  
+    }
+  
+
+  
+  
   // console.log(event);
-  newGame.goku.gokuMove(event);
   // newGame.goku.gokuChanges(event)
 });

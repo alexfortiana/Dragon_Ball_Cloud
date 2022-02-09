@@ -1,15 +1,16 @@
 class Game {
   constructor() {
-    this.bg = new Image();
-    this.bg.src = "./Images/sky3.jpg";
+    
     this.move = 0;
     this.goku = new Goku();
     this.cloudsArr = [new Clouds(-260)];
     this.cloudSeparation = 250;
     this.isGameOn = true;
     this.score = -5;
+    
     this.life = new Life()
     this.alubia = new Alubia()
+    this.bg = new Bg()
 
     this.imgGo3 = new Image();
     this.imgGo3.src = "./Images/3.png";
@@ -25,8 +26,7 @@ class Game {
 
     this.ball = new Ball();
 
-    // this.gameMusic = new Audio()
-    // this.gameMusic.src = "Sounds/Dragon Ball Z_Prologue Theme 2(Extended) Buu Saga.mp3"
+    
 
     // this.cloudPosition = [-20, 100, 220, 340]
   }
@@ -85,9 +85,7 @@ class Game {
     }
   };
 
-  drawBackground = () => {
-    ctx.drawImage(this.bg, 0, this.move, canvas.width, canvas.height);
-  };
+  
   
 
   // movingBackground = () => {
@@ -120,6 +118,7 @@ class Game {
         this.goku.transform = false;
       } else if (this.goku.transform === false) {
         this.isGameOn = false;
+        gameMusic.pause()
         canvas.style.display = "none";
         gameOverScreen.style.display = "flex";
         gokuScore.innerText = Math.floor(this.score)
@@ -174,12 +173,15 @@ class Game {
       this.levelChange(eachCloud);
     });
 
-    this.drawBackground();
+    this.bg.moveBackgrounds(this.score)
+
+    this.bg.drawBackgrounds();
+    
     this.life.drawLife(this.goku.transform)
     this.alubia.drawAlubia(this.score)
 
-    this.goku.drawGoku();
-    // this.goku.gokuStart(this.score)
+    this.goku.drawGoku(this.score);
+    // this.goku.gokuStart()
 
     this.cloudsArr.forEach((eachCloud) => {
       eachCloud.drawClouds();
@@ -192,6 +194,7 @@ class Game {
     // this.goku.gokuTransform()
 
     this.ball.drawBall(this.score);
+    this.goku.updatePosicion()
     
 
     // console.log("the game is going!!")
