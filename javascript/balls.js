@@ -5,7 +5,7 @@ class Ball {
     this.width = 30;
     this.height = 30;
     this.img = new Image();
-    this.img.src = "../Images/ball.png";
+    this.img.src = "./Images/ball.png";
   }
 
   drawBall = (scoreParam) => {

@@ -12,16 +12,16 @@ class Game {
     this.score = -5;
 
     this.imgGo3 = new Image();
-    this.imgGo3.src = "../Images/3.png"
+    this.imgGo3.src = "./Images/3.png"
 
     this.imgGo2 = new Image();
-    this.imgGo2.src = "../Images/2.png" 
+    this.imgGo2.src = "./Images/2.png" 
 
     this.imgGo1 = new Image();
-    this.imgGo1.src = "../Images/1.png" 
+    this.imgGo1.src = "./Images/1.png" 
 
     this.imgGo = new Image();
-    this.imgGo.src = "../Images/go.png" 
+    this.imgGo.src = "./Images/go.png" 
 
     this.ball = new Ball()
 

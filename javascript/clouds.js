@@ -5,7 +5,7 @@ class Clouds {
     this.width = 130;
     this.height = 75;
     this.img = new Image();
-    this.img.src = "../Images/cloud.png";
+    this.img.src = "./Images/cloud.png";
     this.velocity = 3
   }
 
