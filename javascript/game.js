@@ -1,7 +1,7 @@
 class Game {
   constructor() {
     this.bg = new Image();
-    this.bg.src = "../Images/sky3.jpg";
+    this.bg.src = "./Images/sky3.jpg";
     this.move = 0
     // this.bg2 = new Image();
     // this.bg2.src = "../Images/sky3.jpg";
@@ -25,8 +25,8 @@ class Game {
 
     this.ball = new Ball()
 
-    this.gameMusic = new Audio()
-    this.gameMusic.src = "Sounds/Dragon Ball Z_Prologue Theme 2(Extended) Buu Saga.mp3"
+    // this.gameMusic = new Audio()
+    // this.gameMusic.src = "Sounds/Dragon Ball Z_Prologue Theme 2(Extended) Buu Saga.mp3"
 
 
 
