@@ -4,7 +4,7 @@ class Game {
     this.bg.src = "./Images/sky3.jpg";
     this.move = 0
     // this.bg2 = new Image();
-    // this.bg2.src = "../Images/sky3.jpg";
+    // this.bg2.src = "./Images/sky3.jpg";
     this.goku = new Goku();
     this.cloudsArr = [new Clouds(-260)];
     this.cloudSeparation = 250;
