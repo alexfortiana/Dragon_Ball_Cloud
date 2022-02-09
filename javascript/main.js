@@ -5,6 +5,12 @@ let gameOverScreen = document.querySelector("#gameover-screen");
 let canvas = document.querySelector("#my-canvas");
 let ctx = canvas.getContext("2d");
 let newGame;
+let nameOfUser = document.querySelector("#nameOfUser")
+let nameWin = document.querySelector("#nameWin")
+let gokuScore = document.querySelector("#scoreWin")
+
+
+
 
 const startGame = () => {
   splashScreen.style.display = "none";
@@ -13,6 +19,8 @@ const startGame = () => {
   newGame = new Game();
   // console.log(newGame)
   newGame.gameLoop();
+  nameWin.innerText = nameOfUser.value
+  
 };
 
 const restartGame = () => {

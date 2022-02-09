@@ -19,7 +19,7 @@
         <p>Just move the arrow on your keyboard to move Son Goku.</p>
         <label for="name">NICKNAME</label>
         <br>
-        <input type="text" id="name" name="name" />
+        <input type="text" id="nameOfUser" name="name" />
 
         <button id="start-button">START</button>
       </div>
@@ -30,8 +30,10 @@
         
         <img src="./Images/gameover-title.png" alt="gameover-logo" />
         <span class="records"
-          >HIGH SCORES!
-          <ol class="score-list"></ol>
+          >YOUR SCORE!
+          <span id="nameWin"></span>
+          <span id="scoreWin"></span>
+
         </span>
         <button id="restart-button">RESTART</button>
       </div>
@@ -42,5 +44,7 @@
     <script src="./javascript/goku.js"></script>
     <script src="./javascript/clouds.js"></script>
     <script src="./javascript/balls.js"></script>
+    <script src="./javascript/life.js"></script>
+    <script src="./javascript/alubia.js"></script>
   </body>
 </html>

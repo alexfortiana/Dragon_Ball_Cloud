@@ -9,7 +9,7 @@ class Ball {
   }
 
   drawBall = (scoreParam) => {
-    if (scoreParam > 5 && scoreParam < 10) {
+    if (scoreParam > 10 && scoreParam < 15) {
       //    this.x = Math.random() * (canvas.width -20)
       this.x = 40;
       ctx.drawImage(this.img, this.x, this.y, this.width, this.height);

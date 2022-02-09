@@ -8,6 +8,8 @@ class Game {
     this.cloudSeparation = 250;
     this.isGameOn = true;
     this.score = -5;
+    this.life = new Life()
+    this.alubia = new Alubia()
 
     this.imgGo3 = new Image();
     this.imgGo3.src = "./Images/3.png";
@@ -86,6 +88,7 @@ class Game {
   drawBackground = () => {
     ctx.drawImage(this.bg, 0, this.move, canvas.width, canvas.height);
   };
+  
 
   // movingBackground = () => {
   //   if (this.bg.y <= -600) {
@@ -119,6 +122,7 @@ class Game {
         this.isGameOn = false;
         canvas.style.display = "none";
         gameOverScreen.style.display = "flex";
+        gokuScore.innerText = Math.floor(this.score)
       }
     
     }
@@ -130,6 +134,18 @@ class Game {
       this.goku.x + this.goku.width > this.ball.x &&
       this.goku.y < this.ball.y + this.ball.height &&
       this.goku.height + this.goku.y > this.ball.y
+    ) {
+      this.score += 0.2;
+      // this.goku.transform = true;
+    }
+  };
+
+  checkAlubiaCollision = () => {
+    if (
+      this.goku.x < this.alubia.x + this.alubia.width &&
+      this.goku.x + this.goku.width > this.alubia.x &&
+      this.goku.y < this.alubia.y + this.alubia.height &&
+      this.goku.height + this.goku.y > this.alubia.y
     ) {
       this.score += 0.2;
       this.goku.transform = true;
@@ -159,6 +175,8 @@ class Game {
     });
 
     this.drawBackground();
+    this.life.drawLife(this.goku.transform)
+    this.alubia.drawAlubia(this.score)
 
     this.goku.drawGoku();
     // this.goku.gokuStart(this.score)
@@ -170,9 +188,11 @@ class Game {
     this.drawGo();
 
     this.checkBallCollision();
+    this.checkAlubiaCollision()
     // this.goku.gokuTransform()
 
     this.ball.drawBall(this.score);
+    
 
     // console.log("the game is going!!")
     if (this.isGameOn) requestAnimationFrame(this.gameLoop);

@@ -29,7 +29,7 @@ class Goku {
       this.height = 85;
     }
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-    console.log(this.transform);
+    // console.log(this.transform);
   };
 
   gokuMove = (event) => {
