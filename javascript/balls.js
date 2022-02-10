@@ -9,22 +9,35 @@ class Ball {
   }
 
   drawBall = (scoreParam) => {
-    if (scoreParam > 10 && scoreParam < 15) {
-      //    this.x = Math.random() * (canvas.width -20)
+    if (scoreParam > 15 && scoreParam < 20) {
       this.x = 40;
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    } else if (scoreParam > 35 && scoreParam < 40) {
+      this.x = 150;
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    } else if (scoreParam > 50 && scoreParam < 55) {
+      this.x = 390;
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    } else if (scoreParam > 65 && scoreParam < 70) {
+      this.x = 290;
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    } else if (scoreParam > 85 && scoreParam < 90) {
+      this.x = 55;
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    } else if (scoreParam > 105 && scoreParam < 110) {
+      this.x = 150;
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    } else if (scoreParam > 125 && scoreParam < 130) {
+      this.x = 390;
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    } else if (scoreParam > 150 && scoreParam < 155) {
+      this.x = 290;
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    } else if (scoreParam > 180 && scoreParam < 185) {
+      this.x = 55;
       ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     } else {
       this.x = -400;
     }
   };
 }
-
-//   }else if(scoreParam > 40 && scoreParam < 45){
-//     ctx.drawImage(this.img,this.x, this.y, this.width, this.height)
-//   }else if(scoreParam > 65 && scoreParam < 70){
-//     ctx.drawImage(this.img,this.x, this.y, this.width, this.height)
-//   }else if(scoreParam > 85 && scoreParam < 90){
-//     ctx.drawImage(this.img,this.x, this.y, this.width, this.height)
-//   }else if(scoreParam > 105 && scoreParam < 105){
-//     ctx.drawImage(this.img,this.x, this.y, this.width, this.height)
-//   } //limpiar

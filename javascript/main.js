@@ -5,24 +5,33 @@ let gameOverScreen = document.querySelector("#gameover-screen");
 let canvas = document.querySelector("#my-canvas");
 let ctx = canvas.getContext("2d");
 let newGame;
-let nameOfUser = document.querySelector("#nameOfUser")
-let nameWin = document.querySelector("#nameWin")
-let gokuScore = document.querySelector("#scoreWin")
-let gameMusic = new Audio()
-gameMusic.src = "Sounds/Dragon Ball Z_Prologue Theme 2(Extended) Buu Saga.mp3"
+let nameOfUser = document.querySelector("#nameOfUser");
+let nameWin = document.querySelector("#nameWin");
+let gokuScore = document.querySelector("#scoreWin");
+let startMusic = new Audio();
+    startMusic.src = "../Sounds/start-song.mp3";
+    
 
+    let gameMusic = new Audio();
+    gameMusic.src = "../Sounds/game_music.mp3";
+
+    let endMusic = new Audio();
+    endMusic.src = "../Sounds/end-song.mp3";
+
+    
 
 
 
 const startGame = () => {
   splashScreen.style.display = "none";
   canvas.style.display = "flex";
-  // console.log("holaa")
+
   newGame = new Game();
-  // console.log(newGame)
+
   newGame.gameLoop();
-  nameWin.innerText = nameOfUser.value
-  gameMusic.play()
+  nameWin.innerText = nameOfUser.value;
+  // startMusic.pause()
+  
   
 };
 
@@ -30,8 +39,10 @@ const restartGame = () => {
   gameOverScreen.style.display = "none";
   canvas.style.display = "flex";
   newGame = new Game();
-  // console.log(newGame)
+
   newGame.gameLoop();
+  
+  endMusic.pause()
 };
 
 //*ADD EVENT LISTENERS
@@ -42,23 +53,40 @@ startButton.addEventListener("click", startGame);
 let restartButton = document.querySelector("#restart-button");
 restartButton.addEventListener("click", restartGame);
 
+let muteMusic = document.querySelectorAll("video, audio")
+muteMusicOn = () =>{
+  muteMusic = muteMusic.volume = 0.9
+}
+
+let onMusic = document.querySelector("#sonido1")
+onMusic.addEventListener("click",  muteMusicOn)
+
+muteMusicOff = () =>{
+
+  muteMusic = muteMusic.volume = 0.1
+}
+
+
+let offMusic = document.querySelector("#sonido2")
+offMusic.addEventListener("click", muteMusicOff)
+
+
+
+
+
+
+
+
+
 
 document.addEventListener("keydown", (event) => {
-  if(newGame !== undefined){
+  if (newGame !== undefined) {
     newGame.goku.gokuMove(event);
-
   }
-})
+});
 
-  document.addEventListener("keyup", (event) => {
-    if(newGame !== undefined){
-      newGame.goku.gokuPause(event);
-  
-    }
-  
-
-  
-  
-  // console.log(event);
-  // newGame.goku.gokuChanges(event)
+document.addEventListener("keyup", (event) => {
+  if (newGame !== undefined) {
+    newGame.goku.gokuPause(event);
+  }
 });

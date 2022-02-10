@@ -1,16 +1,15 @@
 class Game {
   constructor() {
-    
     this.move = 0;
     this.goku = new Goku();
     this.cloudsArr = [new Clouds(-260)];
     this.cloudSeparation = 250;
     this.isGameOn = true;
     this.score = -5;
-    
-    this.life = new Life()
-    this.alubia = new Alubia()
-    this.bg = new Bg()
+
+    this.life = new Life();
+    this.alubia = new Alubia();
+    this.bg = new Bg();
 
     this.imgGo3 = new Image();
     this.imgGo3.src = "./Images/3.png";
@@ -26,30 +25,42 @@ class Game {
 
     this.ball = new Ball();
 
+    this.sound3 = new Audio()
+    this.sound3.src = "../Sounds/3.mp3"
+
+    this.sound2 = new Audio()
+    this.sound2.src = "../Sounds/2.mp3"
+
+    this.sound1 = new Audio()
+    this.sound1.src = "../Sounds/1.mp3"
+
+    this.soundGo = new Audio()
+    this.soundGo.src = "../Sounds/go.mp3"
+
+    this.soundPotence = new Audio()
+    this.soundPotence.src = "../Sounds/colisionball-goku.mp3"
+
+    this.soundPoints = new Audio()
+    this.soundPoints.src = "../Sounds/beep.mp3"
+
     
-
-    // this.cloudPosition = [-20, 100, 220, 340]
   }
-
-  // musicPlay = () => {
-  //   if(this.score > -1){
-  //     this.gameMusic.play()
-  //   } else if(this.isGameOn === false)
-  //   {console.log("hola")
-  //     this.musicPlay.pause();
-  //     this.musicPlay.currentTime = 0}
-  // }
 
   drawGo = () => {
     if (this.score < -4) {
       ctx.drawImage(this.imgGo3, canvas.width / 2 - 25, 200, 50, 80);
-      //poner sonidos tambien
+      this.sound3.play()
     } else if (this.score > -4 && this.score < -3) {
       ctx.drawImage(this.imgGo2, canvas.width / 2 - 25, 200, 50, 80);
+      this.sound2.play()
     } else if (this.score > -3 && this.score < -2) {
       ctx.drawImage(this.imgGo1, canvas.width / 2 - 25, 200, 50, 80);
+      this.sound1.play()
     } else if (this.score > -2 && this.score < -1) {
       ctx.drawImage(this.imgGo, canvas.width / 2 - 45, 180, 120, 150);
+      this.soundGo.play()
+      gameMusic.play();
+
     }
   };
 
@@ -79,27 +90,12 @@ class Game {
     } else if (this.score > 50) {
       eachCloud.velocity = 5;
     } else if (this.score > 75) {
-      eachCloud.velocity = 6;
-    } else if (this.score > 100) {
       eachCloud.velocity = 7;
+    } else if (this.score > 100) {
+      eachCloud.velocity = 10;
     }
   };
 
-  
-  
-
-  // movingBackground = () => {
-  //   if (this.bg.y <= -600) {
-  //     this.bg.y = 600
-  //   }
-  //   if(this.bg2.y <= -600) {
-  //     this.bg2.y = 600
-  //   }
-
-  //   this.bg.y -= 5
-  //   this.bg2.y -= 5
-
-  // }
   clearCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
@@ -118,12 +114,12 @@ class Game {
         this.goku.transform = false;
       } else if (this.goku.transform === false) {
         this.isGameOn = false;
-        gameMusic.pause()
+        gameMusic.pause();
         canvas.style.display = "none";
         gameOverScreen.style.display = "flex";
-        gokuScore.innerText = Math.floor(this.score)
+        gokuScore.innerText = Math.floor(this.score) + " points!";
+        endMusic.play()
       }
-    
     }
   };
 
@@ -134,8 +130,9 @@ class Game {
       this.goku.y < this.ball.y + this.ball.height &&
       this.goku.height + this.goku.y > this.ball.y
     ) {
-      this.score += 0.2;
-      // this.goku.transform = true;
+      this.score += 5;
+      this.soundPoints.play()
+      
     }
   };
 
@@ -148,6 +145,10 @@ class Game {
     ) {
       this.score += 0.2;
       this.goku.transform = true;
+      
+      this.soundPotence.play()
+      
+
     }
   };
 
@@ -166,38 +167,35 @@ class Game {
       eachCloud.cloudsMove();
     });
     this.spawningClouds();
-    // this.musicPlay()
 
     this.cloudsArr.forEach((eachCloud) => {
       this.checkGokuCollision(eachCloud);
       this.levelChange(eachCloud);
     });
 
-    this.bg.moveBackgrounds(this.score)
+    this.bg.moveBackgrounds(this.score);
 
     this.bg.drawBackgrounds();
-    
-    this.life.drawLife(this.goku.transform)
-    this.alubia.drawAlubia(this.score)
+
+    this.life.drawLife(this.goku.transform);
+    this.alubia.drawAlubia(this.score);
 
     this.goku.drawGoku(this.score);
-    // this.goku.gokuStart()
+    this.goku.gokuStart(this.score);
 
     this.cloudsArr.forEach((eachCloud) => {
       eachCloud.drawClouds();
     });
     this.drawScore();
     this.drawGo();
-
-    this.checkBallCollision();
-    this.checkAlubiaCollision()
-    // this.goku.gokuTransform()
-
-    this.ball.drawBall(this.score);
-    this.goku.updatePosicion()
     
 
-    // console.log("the game is going!!")
+    this.checkBallCollision();
+    this.checkAlubiaCollision();
+
+    this.ball.drawBall(this.score);
+    this.goku.updatePosicion();
+
     if (this.isGameOn) requestAnimationFrame(this.gameLoop);
 
     this.score += 0.02;

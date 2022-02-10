@@ -6,7 +6,7 @@ class Clouds {
     this.height = 75;
     this.img = new Image();
     this.img.src = "./Images/cloud.png";
-    this.velocity = 3
+    this.velocity = 3;
   }
 
   drawClouds = () => {
@@ -14,8 +14,6 @@ class Clouds {
   };
 
   cloudsMove = () => {
-      
     this.y = this.y - this.velocity;
-      
   };
 }

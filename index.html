@@ -9,32 +9,55 @@
   </head>
   <body>
     <div class="container">
+      <button id="sonido1">ON</button>
+        <button id="sonido2">OFF</button>
       <div id="splash-screen" class="container">
-        <img src="./Images/logo-game.png" alt="title-logo" width="300px" />
-        <img id = "cloud-background" src="./Images/nube.png" alt="" width="100">
-        <img class="start-titles" src="./Images/instructions-foto.png" alt="" width="150">
-        <br>
-        <img src="./Images/arrows.png" alt="" width="60">
-        <br>
-        <p class="description">Just move the arrow on your keyboard to move Son Goku.</p>
-        <label for="name">NICKNAME</label>
-        <br>
+        
+
+        <img id="logo" src="./Images/logo-game.png" alt="title-logo" width="300px" />
+        <img id="son-goku" src="./Images/songokustart.png" alt="" width="130">
+        <img id="cloud-background" src="./Images/nube.png" alt="" width="100" />
+        <div id="rest">
+        <img
+          class="start-titles"
+          src="./Images/instructions-foto.png"
+          alt=""
+          width="130"
+        />
+
+        <p class="description">
+          Move the arrow on your keyboard to dodge the clouds. Take the dragon
+          balls for more score, and eat magic beans to transform Son Goku.
+        </p>
+        <img src="./Images/arrows.png" alt="" width="60" />
+        <br><br>
+
+        
+
+        <label id="enter-name" for="name">Enter your nickname!</label>
+      
         <input type="text" id="nameOfUser" name="name" />
 
+
         <button id="start-button">START</button>
+      </div>
       </div>
 
       <canvas id="my-canvas" width="500" height="600"></canvas>
 
       <div id="gameover-screen" class="container">
-        
         <img src="./Images/gameover-title.png" alt="gameover-logo" />
         <span class="records"
-          >YOUR SCORE!
+          >CONGRATULATIONS 
           <span id="nameWin"></span>
-          <span id="scoreWin"></span>
+          <span>YOUR SCORE IS</span>
 
+          
+
+          <span id="scoreWin"></span>
         </span>
+        <br>
+        
         <button id="restart-button">RESTART</button>
       </div>
     </div>
