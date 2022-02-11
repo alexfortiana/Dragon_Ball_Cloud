@@ -6,10 +6,10 @@ class Game {
     this.cloudSeparation = 250;
     this.isGameOn = true;
     this.score = -5;
-
     this.life = new Life();
     this.alubia = new Alubia();
     this.bg = new Bg();
+    //IMAGENES QUE VOY A USAR
 
     this.imgGo3 = new Image();
     this.imgGo3.src = "./Images/3.png";
@@ -24,6 +24,8 @@ class Game {
     this.imgGo.src = "./Images/go.png";
 
     this.ball = new Ball();
+
+    //AUDIOS QUE VOY A USAR
 
     this.sound3 = new Audio()
     this.sound3.src = "./Sounds/3.mp3"
@@ -46,23 +48,34 @@ class Game {
     
   }
 
+ //DETALLE PARA CONTAR HASTA 3 ANTES DE EMPEZAR
+ 
   drawGo = () => {
     if (this.score < -4) {
       ctx.drawImage(this.imgGo3, canvas.width / 2 - 25, 200, 50, 80);
       this.sound3.play()
+      this.sound3.volume = 0.05;
     } else if (this.score > -4 && this.score < -3) {
       ctx.drawImage(this.imgGo2, canvas.width / 2 - 25, 200, 50, 80);
       this.sound2.play()
+      this.sound2.volume = 0.05;
     } else if (this.score > -3 && this.score < -2) {
       ctx.drawImage(this.imgGo1, canvas.width / 2 - 25, 200, 50, 80);
       this.sound1.play()
+      this.sound1.volume = 0.05;
     } else if (this.score > -2 && this.score < -1) {
       ctx.drawImage(this.imgGo, canvas.width / 2 - 45, 180, 120, 150);
+      
       this.soundGo.play()
+      this.soundGo.volume = 0.05;
       gameMusic.play();
+      gameMusic.volume = 0.05;
+
 
     }
   };
+
+  //AQUI HAGO QUE LAS NUBES SUBAN DE MANERA MULTIPLE Y ALEATORIAMENTE
 
   spawningClouds = () => {
     let lastCloud = this.cloudsArr[this.cloudsArr.length - 1];
@@ -84,9 +97,11 @@ class Game {
     }
   };
 
+//AQUI HAGO QUE SUBA LA NIVEL CADA X TIEMPO
+
   levelChange = (eachCloud) => {
     if (this.score > 25) {
-      eachCloud.velocity = 4;
+      eachCloud.velocity = 3;
     } else if (this.score > 50) {
       eachCloud.velocity = 5;
     } else if (this.score > 75) {
@@ -96,9 +111,14 @@ class Game {
     }
   };
 
+  //LIMPIAMOS EL CANVAS
+
   clearCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
+
+  //AQUI ES CUANDO GOKU CHOCA CON NUBE O SE LA SALTA
+
 
   checkGokuCollision = (eachCloudParam) => {
     if (
@@ -119,9 +139,13 @@ class Game {
         gameOverScreen.style.display = "flex";
         gokuScore.innerText = Math.floor(this.score) + " points!";
         endMusic.play()
+        endMusic.volume = 0.05;
       }
     }
   };
+
+
+  //PARA COLISIONES CON BOLAS O ALUBIAS
 
   checkBallCollision = () => {
     if (
@@ -132,6 +156,7 @@ class Game {
     ) {
       this.score += 5;
       this.soundPoints.play()
+      this.soundPoints.volume = 0.05
       
     }
   };
@@ -147,10 +172,14 @@ class Game {
       this.goku.transform = true;
       
       this.soundPotence.play()
+      this.soundPotence.volume = 0.02
       
 
     }
   };
+
+
+  // LA BARRA DE PUNTUACION
 
   drawScore() {
     if (this.score > 0) {
@@ -159,6 +188,8 @@ class Game {
       ctx.fillText("Score: " + this.score.toFixed(0), canvas.width - 200, 20);
     }
   }
+
+  //FUNCION DEL JUEGO!!!
 
   gameLoop = () => {
     this.clearCanvas();

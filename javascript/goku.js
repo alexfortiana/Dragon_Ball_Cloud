@@ -17,40 +17,15 @@ class Goku {
 
     this.inclination = 0;
     this.toRadians = Math.PI / 180;
+
+    
     this.soundTransform = new Audio()
     this.soundTransform.src = "./Sounds/transform-goku.mp3"
+    this.soundTransform.volume = 0.005;
     
   }
 
-  // gokuStart = (paramScore) => {
-  //   if (paramScore < -1 && this.xMove <= 230) {
-  //     this.xMove += 3;
-      
 
-  //     ctx.drawImage(
-  //       this.spriter,
-  //       this.spriterX * 40,
-  //       0,
-  //       40,
-  //       83,
-  //       this.xMove,
-  //       this.y,
-  //       this.width + 5,
-  //       this.height + 5
-  //     )
-      
-
-  //     this.spriterX += 1;
-  //     if (this.spriterX > 2) {
-  //       if (this.x % 2 === 0) {
-  //         this.spriterX = 2;
-  //       }
-  //       if (this.x % 3 === 0) {
-  //         this.spriterX = 4;
-  //       }
-  //     }
-  //   }
-  // };
   
   gokuStart = (paramScore) => {
     if (paramScore < -1 && this.xMove <= 230) {
@@ -68,7 +43,11 @@ class Goku {
         this.soundTransform.pause()
       } else {
         this.img.src = "./Images/transform-goku.png";
+        this.soundTransform.volume = 0.05;
+        
         this.soundTransform.play()
+        
+        
       }
       ctx.save();
       ctx.translate(this.x, this.y);

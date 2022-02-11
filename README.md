@@ -1,11 +1,11 @@
 ## Dragon Ball Cloud
 
-https://github.com/alexfortiana/Dragon_Ball_Cloud.git
+https://alexfortiana.github.io/Dragon_Ball_Cloud/
 
 ### Description
 
-Dragon Ball Cloud is a game where the character will have obstacles that he will 
-have to avoid by turning to the left or to the right, if he touches the obstacle 
+Dragon Ball Cloud is a game where the character will have obstacles that he will
+have to avoid by turning to the left or to the right, if he touches the obstacle
 the game is over.
 
 ### MVP
@@ -13,15 +13,11 @@ the game is over.
 - the game has a character that moves horizontally
 - the obstacles appear randomly from the bottom of the screen
 
-
-
-
 ### Backlog
 
 - add scoreboard
 - put the name of the user
 - sounds and music
-
 
 ### Data structure
 
@@ -42,13 +38,14 @@ the game is over.
 - drawClouds(){}
 - cloudsMoveUp(){}
 
-### States and  States Transitions
+### States and States Transitions
 
 - splashScreen
 - gameScreen
 - gameOverScreen
 
 ### Task
+
 - main - buildDom
 - main - buildSplashScreen
 - main - buildGameScreen
@@ -64,7 +61,6 @@ the game is over.
 - game - checkGokuCollision
 - game - gameOver
 
-
 ### Additional links
 
 #### Trello
@@ -72,3 +68,5 @@ the game is over.
 https://trello.com/b/hBzWDbR0/dragon-ball-game
 
 #### Slides
+
+https://docs.google.com/presentation/d/1mUYqQCDNs9lZ9js2vQw5z2H9Cd-gSct5oAXaiO_0XRo/edit?usp=sharing

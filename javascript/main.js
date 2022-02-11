@@ -1,4 +1,4 @@
-// * VARIABLES GLOBALES
+// AQUI GUARDO LAS VARIABLES GLOBALES
 
 let splashScreen = document.querySelector("#splash-screen");
 let gameOverScreen = document.querySelector("#gameover-screen");
@@ -10,13 +10,14 @@ let nameWin = document.querySelector("#nameWin");
 let gokuScore = document.querySelector("#scoreWin");
 let startMusic = new Audio();
 startMusic.src = "./Sounds/start-song.mp3";
-startMusic.play()
 
 let gameMusic = new Audio();
 gameMusic.src = "./Sounds/game_music.mp3";
 
 let endMusic = new Audio();
 endMusic.src = "./Sounds/end-song.mp3";
+
+//FUNCIONES PRINCIPALES
 
 const startGame = () => {
   splashScreen.style.display = "none";
@@ -26,7 +27,7 @@ const startGame = () => {
 
   newGame.gameLoop();
   nameWin.innerText = nameOfUser.value;
-  startMusic.pause()
+  startMusic.pause();
 };
 
 const restartGame = () => {
@@ -39,50 +40,50 @@ const restartGame = () => {
   endMusic.pause();
 };
 
+//FUNCIONES PARA EL AUDIO
 
 const muteAudio = () => {
-  if(newGame){
-  newGame.sound3.volume = 0;
-  newGame.sound2.volume = 0;
-  newGame.sound1.volume = 0;
-  newGame.soundGo.volume = 0;
-  newGame.soundPotence.volume = 0;
-  newGame.soundPoints.volume = 0;
-  newGame.goku.soundTransform.volume = 0;
-  startMusic.volume = 0;
-  gameMusic.volume = 0;
-  endMusic.volume = 0
-}
-
-if(splashScreen || gameOverScreen){
-  startMusic.volume = 0;
-
-}
-
-
-
-}
+  if (newGame) {
+    newGame.sound3.volume = 0;
+    newGame.sound2.volume = 0;
+    newGame.sound1.volume = 0;
+    newGame.soundGo.volume = 0;
+    newGame.soundPotence.volume = 0;
+    newGame.soundPoints.volume = 0;
+    newGame.goku.soundTransform.volume = 0;
+    startMusic.volume = 0;
+    gameMusic.volume = 0;
+    endMusic.volume = 0;
+  }
+  if (splashScreen) {
+    startMusic.volume = 0;
+  } else if (gameOverScreen) {
+    endMusic.volume = 0;
+    endMusic.volume = 0.05;
+  }
+};
 
 const onAudio = () => {
-  if(newGame){
-  newGame.sound3.volume = 1;
-  newGame.sound2.volume = 1;
-  newGame.sound1.volume = 1;
-  newGame.soundGo.volume = 1;
-  newGame.soundPotence.volume = 1;
-  newGame.soundPoints.volume = 1;
-  newGame.goku.soundTransform.volume = 1;
-  startMusic.volume = 1;
-  gameMusic.volume = 1;
-  endMusic.volume = 1
+  if (newGame) {
+    newGame.sound3.volume = 0.05;
+    newGame.sound2.volume = 0.05;
+    newGame.sound1.volume = 0.05;
+    newGame.soundGo.volume = 0.05;
+    newGame.soundPotence.volume = 0.05;
+    newGame.soundPoints.volume = 0.05;
+    newGame.goku.soundTransform.volume = 0.05;
+    gameMusic.volume = 0.05;
   }
-  if(splashScreen || gameOverScreen ){
-    startMusic.volume = 1;
+  if (splashScreen && newGame === undefined) {
+    startMusic.play();
+    startMusic.volume = 0.05;
   }
-  
-}
+  if (gameOverScreen && newGame === undefined) {
+    endMusic.volume = 0.05;
+  }
+};
 
-//*ADD EVENT LISTENERS
+//AQUI GUARDO LOS ADD EVENT LISTENERS
 
 let startButton = document.querySelector("#start-button");
 startButton.addEventListener("click", startGame);
@@ -90,17 +91,8 @@ startButton.addEventListener("click", startGame);
 let restartButton = document.querySelector("#restart-button");
 restartButton.addEventListener("click", restartGame);
 
-// let muteMusic = document.querySelectorAll("video, audio");
-// muteMusicOn = () => {
-//   muteMusic = muteMusic.volume = 0.9;
-// };
-
 let onMusic = document.querySelector("#sonido1");
 onMusic.addEventListener("click", onAudio);
-
-// muteMusicOff = () => {
-//   muteMusic = muteMusic.volume = 0.1;
-// };
 
 let offMusic = document.querySelector("#sonido2");
 offMusic.addEventListener("click", muteAudio);
