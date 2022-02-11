@@ -26,22 +26,22 @@ class Game {
     this.ball = new Ball();
 
     this.sound3 = new Audio()
-    this.sound3.src = "../Sounds/3.mp3"
+    this.sound3.src = "./Sounds/3.mp3"
 
     this.sound2 = new Audio()
-    this.sound2.src = "../Sounds/2.mp3"
+    this.sound2.src = "./Sounds/2.mp3"
 
     this.sound1 = new Audio()
-    this.sound1.src = "../Sounds/1.mp3"
+    this.sound1.src = "./Sounds/1.mp3"
 
     this.soundGo = new Audio()
-    this.soundGo.src = "../Sounds/go.mp3"
+    this.soundGo.src = "./Sounds/go.mp3"
 
     this.soundPotence = new Audio()
-    this.soundPotence.src = "../Sounds/colisionball-goku.mp3"
+    this.soundPotence.src = "./Sounds/colisionball-goku.mp3"
 
     this.soundPoints = new Audio()
-    this.soundPoints.src = "../Sounds/beep.mp3"
+    this.soundPoints.src = "./Sounds/beep.mp3"
 
     
   }

@@ -1,9 +1,0 @@
-// class Sound {
-//   constructor() {
-//     
-//   }
-
-//   soundPower = () => {
-      
-//   }
-// }

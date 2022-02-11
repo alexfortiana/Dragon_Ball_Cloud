@@ -9,18 +9,13 @@ let nameOfUser = document.querySelector("#nameOfUser");
 let nameWin = document.querySelector("#nameWin");
 let gokuScore = document.querySelector("#scoreWin");
 let startMusic = new Audio();
-    startMusic.src = "../Sounds/start-song.mp3";
-    
+startMusic.src = "./Sounds/start-song.mp3";
 
-    let gameMusic = new Audio();
-    gameMusic.src = "../Sounds/game_music.mp3";
+let gameMusic = new Audio();
+gameMusic.src = "./Sounds/game_music.mp3";
 
-    let endMusic = new Audio();
-    endMusic.src = "../Sounds/end-song.mp3";
-
-    
-
-
+let endMusic = new Audio();
+endMusic.src = "./Sounds/end-song.mp3";
 
 const startGame = () => {
   splashScreen.style.display = "none";
@@ -31,8 +26,6 @@ const startGame = () => {
   newGame.gameLoop();
   nameWin.innerText = nameOfUser.value;
   // startMusic.pause()
-  
-  
 };
 
 const restartGame = () => {
@@ -41,8 +34,8 @@ const restartGame = () => {
   newGame = new Game();
 
   newGame.gameLoop();
-  
-  endMusic.pause()
+
+  endMusic.pause();
 };
 
 //*ADD EVENT LISTENERS
@@ -53,31 +46,20 @@ startButton.addEventListener("click", startGame);
 let restartButton = document.querySelector("#restart-button");
 restartButton.addEventListener("click", restartGame);
 
-let muteMusic = document.querySelectorAll("video, audio")
-muteMusicOn = () =>{
-  muteMusic = muteMusic.volume = 0.9
-}
+let muteMusic = document.querySelectorAll("video, audio");
+muteMusicOn = () => {
+  muteMusic = muteMusic.volume = 0.9;
+};
 
-let onMusic = document.querySelector("#sonido1")
-onMusic.addEventListener("click",  muteMusicOn)
+let onMusic = document.querySelector("#sonido1");
+onMusic.addEventListener("click", muteMusicOn);
 
-muteMusicOff = () =>{
+muteMusicOff = () => {
+  muteMusic = muteMusic.volume = 0.1;
+};
 
-  muteMusic = muteMusic.volume = 0.1
-}
-
-
-let offMusic = document.querySelector("#sonido2")
-offMusic.addEventListener("click", muteMusicOff)
-
-
-
-
-
-
-
-
-
+let offMusic = document.querySelector("#sonido2");
+offMusic.addEventListener("click", muteMusicOff);
 
 document.addEventListener("keydown", (event) => {
   if (newGame !== undefined) {

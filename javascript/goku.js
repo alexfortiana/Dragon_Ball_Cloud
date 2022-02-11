@@ -11,46 +11,56 @@ class Goku {
     this.gokuVelocity = 0;
     this.gokuGravity = 0;
     this.spriter = new Image();
-    this.spriter.src = "../Images/goku-move.png";
+    this.spriter.src = "./Images/goku-flying.png";
     this.spriterX = 0;
     this.xMove = 0;
 
     this.inclination = 0;
     this.toRadians = Math.PI / 180;
     this.soundTransform = new Audio()
-    this.soundTransform.src = "../Sounds/transform-goku.mp3"
+    this.soundTransform.src = "./Sounds/transform-goku.mp3"
     
   }
 
-  gokuStart = (paramScore) => {
-    if (paramScore < -2 && this.xMove <= 230) {
-      this.xMove += 3;
+  // gokuStart = (paramScore) => {
+  //   if (paramScore < -1 && this.xMove <= 230) {
+  //     this.xMove += 3;
       
 
-      ctx.drawImage(
-        this.spriter,
-        this.spriterX * 40,
-        0,
-        40,
-        83,
-        this.xMove,
-        this.y,
-        this.width + 5,
-        this.height + 5
-      );
+  //     ctx.drawImage(
+  //       this.spriter,
+  //       this.spriterX * 40,
+  //       0,
+  //       40,
+  //       83,
+  //       this.xMove,
+  //       this.y,
+  //       this.width + 5,
+  //       this.height + 5
+  //     )
+      
 
-      this.spriterX += 1;
-      if (this.spriterX > 2) {
-        if (this.x % 2 === 0) {
-          this.spriterX = 2;
-        }
-        if (this.x % 3 === 0) {
-          this.spriterX = 4;
-        }
-      }
+  //     this.spriterX += 1;
+  //     if (this.spriterX > 2) {
+  //       if (this.x % 2 === 0) {
+  //         this.spriterX = 2;
+  //       }
+  //       if (this.x % 3 === 0) {
+  //         this.spriterX = 4;
+  //       }
+  //     }
+  //   }
+  // };
+  
+  gokuStart = (paramScore) => {
+    if (paramScore < -1 && this.xMove <= 230) {
+      this.xMove += 1.5;
+      
+
+      ctx.drawImage(this.spriter, this.xMove, this.y, this.height, this.width)
+    
     }
   };
-
   drawGoku = (scoreParam) => {
     if (scoreParam > -2) {
       if (this.transform === false) {
@@ -107,13 +117,12 @@ class Goku {
     ) {
       this.gokuVelocity = -3;
       this.inclination += 10;
-
-      // this.x = this.x - this.gokuVelocity;
     } else if (event.key === "ArrowDown" && this.y < 150) {
       this.gokuGravity = 3;
       this.inclination = 0;
     } else if (event.key === "ArrowUp" && this.y > 20) {
       this.gokuGravity = -3;
+      this.inclination = 180
     }
   };
 }

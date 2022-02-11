@@ -3,12 +3,12 @@ body {
   background: url(./Images/BGMAIN.png) no-repeat center center fixed;
   background-size: cover;
   height: 100%;
-  /* overflow: hidden; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #my-canvas {
   background-color: red;
+  border-radius: 25px;
 }
 
 #start-button,
@@ -19,7 +19,7 @@ body {
   font-size: 14px;
   margin-top: 20px;
   border-radius: 12px;
-  cursor:pointer
+  cursor: pointer;
 }
 
 .container {
@@ -38,7 +38,7 @@ body {
 #splash-screen {
   padding: 50px;
   border-radius: 20px;
-  width: 420px;
+  width: 40%;
   height: 500px;
   margin-top: 10px;
   background: url(./Images/fondo-splash-screen.jpg) no-repeat;
@@ -48,7 +48,7 @@ body {
 #gameover-screen {
   padding: 50px;
   border-radius: 20px;
-  width: 420px;
+  width: 40%;
   height: 500px;
   margin-top: 10px;
   background: url(./Images/fondo-game-over.jpg) no-repeat;
@@ -106,12 +106,12 @@ body {
 }
 #son-goku {
   position: absolute;
-  left: 370px;
+  left: 26%;
 }
 #cloud-background {
   position: absolute;
-  top: 150px;
-  right: 368px;
+  top: 20%;
+  right: 35%;
 }
 #rest {
   display: flex;
@@ -141,17 +141,14 @@ body {
   }
 }
 
-
-.records:hover{
-
-animation-name: complexAnimation;
+.records:hover {
+  animation-name: complexAnimation;
   animation-duration: 1.5s;
   transform: scale(1.2);
 }
 
 button:hover {
   opacity: 0.7;
-
 }
 
 @keyframes gokuAnimation {
@@ -172,46 +169,37 @@ button:hover {
   }
   50% {
     transform: rotate(216deg);
-
   }
   60% {
     transform: rotate(252deg);
-
   }
   70% {
     transform: rotate(288deg);
-
   }
   80% {
     transform: rotate(324deg);
-
   }
   90% {
     transform: rotate(360deg);
-
   }
   100% {
     transform: scale(1.2);
   }
 }
 
-
-#son-goku:hover{
-
+#son-goku:hover {
   animation-name: gokuAnimation;
-    animation-duration: 0.3s;
-    transform: scale(2);
-  }
+  animation-duration: 0.3s;
+  transform: scale(2);
+}
 
-  #sonido1 {
-    
-    /* position: absolute; */
-    left: 400px;
-    bottom: 310px;
-  }
-  #sonido2 {
-   
-    /* position: absolute; */
-    left: 400px;
-    bottom: 290px;
-  }
+#sonido1 {
+  /* position: absolute; */
+  left: 400px;
+  bottom: 310px;
+}
+#sonido2 {
+  /* position: absolute; */
+  left: 400px;
+  bottom: 290px;
+}
